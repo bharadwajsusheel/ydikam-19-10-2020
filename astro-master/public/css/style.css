@@ -335,6 +335,7 @@ footer a:hover {text-decoration:none}
 
 div.gallery {
   border: 1px solid #ccc;
+ 
 }
 
 div.gallery:hover {
@@ -344,6 +345,7 @@ div.gallery:hover {
 div.gallery img {
   width: 100%;
   height: auto;
+  display: block;
 }
 
 div.desc {
@@ -408,3 +410,12 @@ span.card {
   font-family: Arial, Helvetica, sans-serif;
   color: #FFFFFF;
 }
+
+#buttons-container{
+  display: none;
+}
+
+.paypal-button-container,.paypal-button-row,.paypal-button,.paypal-button-number-0{
+  display: none !important;
+}
+

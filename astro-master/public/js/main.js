@@ -12,3 +12,4 @@ overlayCloseBtn.onclick = function() {
     appointmentOverlay.style.display="none";
     hideOnOverlay.style.display="block";
 }
+
