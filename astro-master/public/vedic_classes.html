@@ -115,14 +115,14 @@
                                     </br>
                                     </br>
 
-                                    <Center style="font-size: x-large;">“Vedo Nitya Madhiyatam” means let’s study Vedam daily. </Center>
+                                    <Center style="font-size: x-large;">वेदो नीय्तमघीयताम् ।। means let’s study Vedam daily. </Center>
 
                                 </p>
 
 
 
 
-                                </p>
+
                                 <form name="form2" id="ff" method="post" action="">
                                     <label style="font-family: sans-serif;">
                                 Name *:
@@ -360,83 +360,41 @@
              <input type="phone" placeholder="Enter Your Number" name="mobile" id="mobile" required>
              </label>
 
-                                    <label>Gender* :
-                                    <select name="gender">
-                                    <option value="male">Male</option>
-                                    <option value="female">Female</option>
-                                    </select></label></br>
-                                    </label>
+                                    <!--label>Gender* :
+              <select>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              </select></label></br>
+            </label-->
 
+                                    <!--label>
+              Date Of Birth *:
+              <input type="date"  name="DOB" id="service" required>
+            </label-->
 
-                                    <label>
-             
-                                    <input type="hidden"  name="dateOfBirth" id="service" value="01-01-1900">
-                                    </label>
+                                    <!--label>
+              Time Of Birth *:
+              <input type="time"  name="timeofbirth" id="service" required>
+            </label-->
 
-                                    <label>
-                                   
-                                    <input type="hidden"  name="timeofbirth" id="service" value="00:00">
-                                  </label>
-
-                                    <label>
-                                    
-                                    <input type="hidden" placeholder="Enter Your place of birth" name="placeOfBirth" id="service" value="-">
-                                  </label>
-
-                                    <label>
-                                     <input type="text" placeholder="Enter Your Address" name="service" id="service" value="Vedic classes">
-                                    </label>
+                                    <!--label>
+              Place Of Birth *:
+              <input type="text" placeholder="Enter Your place of birth" name="palce" id="service" required>
+            </label-->
 
                                     <label>
-                                    Message *:
-                                    <input type="text" placeholder="Please enter your message" id="message">
-                                    </label>
+             Address *:
+             <input type="text" placeholder="Enter Your Address" name="service" id="service" required>
+             </label>
+
+                                    <label>
+             Message *:
+             <input type="text" placeholder="Please enter your message" id="message">
+             </label>
                                     <p>* Please note that the Appointment should be made before 7 days.</p>
                                     <input class="sendButton" type="submit" name="Submit" value="Send">
 
                                 </form>
-                                <script>
-                                    function getFormData($form) {
-                                        var unindexed_array = $form.serializeArray();
-                                        var indexed_array = {};
-
-                                        $.map(unindexed_array, function(n, i) {
-                                            indexed_array[n['name']] = n['value'];
-                                        });
-
-                                        return indexed_array;
-                                    }
-                                    var $form = $("#ff");
-                                    $('#preiestservicebtn').click(function(e) {
-                                        e.preventDefault();
-
-                                        var data = getFormData($form);
-                                        var jsondata = JSON.stringify(data);
-                                        console.log(jsondata)
-
-                                        $.ajax({
-                                            url: "https://yidikam-sendmail.herokuapp.com/api/appointment/book",
-                                            type: "POST",
-                                            data: data,
-
-                                            success: function(response) {
-                                                //var resp = JSON.parse(response)
-                                                // alert(JSON.parse(response));
-
-
-                                            },
-                                            error: function(jqXHR, response, errorThrown) {
-                                                alert(response, errorThrown);
-                                            }
-                                        });
-
-                                    });
-
-                                    function closeForm() {
-                                        alert("Thank you ! we have receivced your request ! we would get back to you within 2 business working days.\nPlease Note : If you have not received any confirmation mail from us, then you may kindly contact us on the mentioned Email or Phone. ")
-                                        document.getElementById("priestcloseform").click();
-                                    }
-                                </script>
                             </div>
                         </div>
                     </div>
