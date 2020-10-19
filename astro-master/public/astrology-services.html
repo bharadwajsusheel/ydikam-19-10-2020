@@ -17,7 +17,7 @@
     <script type="text/javascript" src="js/Forum_400.font.js"></script>
     <script type="text/javascript" src="js/atooltip.jquery.js"></script>
     <script type="text/javascript" src="js/css3-mediaqueries.js"></script>
-    <script>
+    <!--script>
         function myFunction() {
             var x = document.getElementById("myTopnav");
             if (x.className === "topnav") {
@@ -26,7 +26,8 @@
                 x.className = "topnav";
             }
         }
-    </script>
+	</script-->
+
 </head>
 
 <body id="page5">
@@ -69,17 +70,17 @@
                         <div class="dropdown-content">
                             <a href="vedic_classes.html">Vedic Classes</a>
                             <a href="astrology_classes.html">Astrology Classes</a>
-                            <a href="#">Vaastu Classes</a>
+                            <a href="vasthuclasses.html">Vaastu Classes</a>
                             <!--a href="#">Virtual Services</a-->
-                            <a href="#">Muhurtha Classes</a>
+                            <a href="muhurthaclasses.html" style="font-family: sans-serif;">Muhurtha Classes</a>
                         </div>
                     </div>
                     <!--a href="predictions.html">Predictions</a-->
                     <a href="gallery.html" style="font-family: sans-serif;">Gallery</a>
                     <a href="blog.html" style="font-family: sans-serif;">Blog</a>
                     <a href="contact.html" style="font-family: sans-serif;">Contact Us</a>
-                    <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
-                </div>x
+                    <!--a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a-->
+                </div>
                 <!-- / header -->
                 <!-- content -->
                 <article id="content">
@@ -443,17 +444,40 @@
 						</select-->
 
                             </label>
-                            <input class="sendButton" type="submit" name="Submit" value="Send">
+                            <input class="sendButton" type="submit" name="Submit" value="Send" onclick="getFormData()">
 
                         </form>
+
+                        <script>
+                            function getFormData($form) {
+                                var unindexed_array = $form.serializeArray();
+                                var indexed_array = {};
+
+                                $.map(unindexed_array, function(n, i) {
+                                    indexed_array[n['name']] = n['value'];
+                                });
+                                localStorage.setItem(indexed_array);
+
+                                return indexed_array;
+                            }
+                            var $form = $("#ff");
+                            $('#preiestservicebtn').click(function(e) {
+                                e.preventDefault();
+
+                                var data = getFormData($form);
+                                var jsondata = JSON.stringify(data);
+
+                            })
+                        </script>
+
+
                     </div>
+
                 </div>
             </div>
         </div>
     </div>
-    <script type="text/javascript">
-        Cufon.now();
-    </script>
+
 </body>
 
 </html>
